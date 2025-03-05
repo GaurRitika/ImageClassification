@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flower Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Flower Classifier</h1>
+        <p>Upload an image of a flower to classify it!</p>
+        
+        <form method="post" enctype="multipart/form-data">
+            <div class="file-upload">
+                <input type="file" name="file" id="file-input" accept="image/*" required>
+                <label for="file-input">Choose an image</label>
+            </div>
+            <button type="submit">Classify</button>
+        </form>
+        
+        {% if prediction %}
+        <div class="result">
+            <h2>Result:</h2>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" class="uploaded-image">
+            <p class="prediction">This looks like a <span>{{ prediction }}</span> with {{ confidence }}% confidence.</p>
+        </div>
+        {% endif %}
+        
+        {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Ignore the virtual environment folder
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints (if you used Jupyter)
+.ipynb_checkpoints/
+
+# Ignore logs and cache
+logs/
+*.log
+*.cache
+
+# Ignore model weights (if too large)
+models/*.h5
+models/*.pkl
+models/*.pth
+models/*.pt
+models/*.joblib
+
+# Ignore environment configuration files
+.env
+*.env
